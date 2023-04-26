@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Talaria</title>
+
+    <style>
+        :root {
+            --white: #f6f3f4;
+            --beige: #f6eada;
+            --brown: #c88d78;
+            --dark-brown: #a97056;
+            --green: #6f8142;
+            --dark-green: #30492f;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0px;
+            padding: 0px;
+            background-color: var(--beige);
+        }
+        
+        #header {
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            background-color: var(--dark-green);
+            margin: 0px;
+            width: 100%;
+            position: fixed;
+            top: 0px;
+        }
+        
+        #header h1 {
+            font-size: 20px;
+            color: var(--white);
+            margin: 0;
+        }
+        
+        #big {
+            font-size: 30px;
+        }
+                
+        #content {
+            padding: 10px;
+            margin: 0px;
+            margin-top: 60px;
+            background-color: var(--beige);
+        }
+        
+        #heading {
+            text-align: center;
+            margin-top: 5px;
+        }
+        
+        .row:after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+        
+        #product-right {
+            display: none;
+        }
+        
+        #stats {
+            width: 95%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .stat {
+            background-color: var(--dark-green);
+            padding: 10px;
+            box-sizing: border-box;
+            width: 200px;
+            margin: 10px auto;
+            border: 1px solid var(--dark-green);
+            box-shadow: 0.3rem 0.3rem 0.6rem lightgray, -0.2rem -0.2rem 0.5rem gray;
+        }
+        
+        .stat h3 {
+            text-align: center;
+            margin-top: 5px;
+            margin-bottom: 0px;
+            font-size: 25px;
+            color: var(--white);
+        }
+
+        .stat p {
+            text-align: center;
+            margin-top: 5px;
+            margin-bottom: 0px;
+            color: var(--white);
+        }
+
+        .number {
+            text-align: center;
+            margin-top: 5px;
+            margin-bottom: 0px;
+            font-size: 60px;
+            font-weight: bold;
+            color: var(--white);
+        }
+
+        .column {
+            margin: 5px auto;
+            width: fit-content;
+        }
+
+    </style>
+
+    <!-- <meta charset="UTF-8">
+    <title>Talaria</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/f0601b0fb2.js" crossorigin="anonymous"></script>
+    <script type='module' src='https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.esm.js'></script>
+    <script nomodule='' src='https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.js'></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="assets/css/style.css"> -->
+
+</head>
+
+<body onload="connect()">
+    <div id="header">
+        <h1><span id="big">Talaria</span></h1>
+    </div>
+
+    <div id="content">
+        <!-- <div id="related-header">
+            <h2>Today's Activity</h2>
+        </div> -->
+
+        <div class="row">
+                <div class="stat">
+                    <h3 id="stat-name">Voltage</h3>
+                    <h4 class="number" id="stat-value">0</h4>
+                </div>
+        </div>
+
+        <div class="row">
+            <div class="column">
+                <label class="radio-inline">
+                    <input type="radio" name="optradio" onclick="trackVoltage()" checked>Voltage
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="optradio" onclick="trackSteps()">Step
+                  </label>
+    
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="column">
+                <button onclick="start()">Start</button>
+                <button onclick="stop()">Stop</button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="column">
+                <button onclick="requestDevice()">Connect to Arduino</button>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script id="rendered-js" src="assets/js/script.js">
+    </script>
+
+</body>
+
+</html>
