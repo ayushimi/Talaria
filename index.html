@@ -18,11 +18,11 @@
     <style>
         :root {
             --white: #f6f3f4;
-            --beige: #f6eada;
+            --beige: #f2edfa;
             --brown: #c88d78;
             --dark-brown: #a97056;
             --green: #6f8142;
-            --dark-green: #30492f;
+            --dark-green: #634e86;
         }
 
         body {
@@ -71,10 +71,6 @@
             display: table;
         }
         
-        #product-right {
-            display: none;
-        }
-        
         #stats {
             width: 95%;
             margin-left: auto;
@@ -82,6 +78,7 @@
         }
         
         .stat {
+            border-radius: 15px;
             background-color: var(--dark-green);
             padding: 10px;
             box-sizing: border-box;
@@ -120,23 +117,35 @@
             width: fit-content;
         }
 
+        button {
+            height: 30px;
+            border-radius: 5px;
+            border: 0.5px solid black;
+            /* box-shadow: 0.1rem 0.1rem 0.2rem lightgray, -0.05rem -0.05rem 0.1rem gray; */
+            margin-right: 3px;
+            margin-left: 3px;
+            cursor: pointer;
+        }
+
+        #start {
+            background-color: #ad9acc;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        #stop {
+            background-color: #e4e1e9;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: auto;
+        }
+
+        #connect {
+            background-color:  #ffffff;
+            height: 25px;
+        }
+
     </style>
-
-    <!-- <meta charset="UTF-8">
-    <title>Talaria</title>
-    <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-    <script src="https://kit.fontawesome.com/f0601b0fb2.js" crossorigin="anonymous"></script>
-    <script type='module' src='https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.esm.js'></script>
-    <script nomodule='' src='https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.js'></script>
-    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-    <link rel="stylesheet" href="assets/css/style.css"> -->
 
 </head>
 
@@ -163,7 +172,7 @@
                     <input type="radio" name="optradio" onclick="trackVoltage()" checked>Voltage
                   </label>
                   <label class="radio-inline">
-                    <input type="radio" name="optradio" onclick="trackSteps()">Step
+                    <input type="radio" name="optradio" onclick="trackSteps()">Steps
                   </label>
     
             </div>
@@ -171,14 +180,14 @@
 
         <div class="row">
             <div class="column">
-                <button onclick="start()">Start</button>
-                <button onclick="stop()">Stop</button>
+                <button id="start" onclick="start()">Start</button>
+                <button id="stop" onclick="stop()">Stop</button>
             </div>
         </div>
 
         <div class="row">
             <div class="column">
-                <button onclick="requestDevice()">Connect to Arduino</button>
+                <button id="connect" onclick="requestDevice()">Connect to Arduino</button>
             </div>
         </div>
 

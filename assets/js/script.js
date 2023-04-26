@@ -96,16 +96,20 @@ function requestDevice() {
 
 
 function start() {
+    $("#start").css('background-color', '#e4e1e9');
+    $("#stop").css('background-color', '#ad9acc');
+    $("#start").css('cursor', 'auto');
+    $("#stop").css('cursor', 'pointer');
     numSteps = 0;
     startStep = false;
     var arr = new Int8Array([21, 31]);
-    return startValue.writeValueWithResponse(arr).then(response => {
-        console.log(exerciseValue)
-        return exerciseValue.startNotifications().then(_ => {
-            console.log('> Notifications started');
-            exerciseValue.addEventListener('characteristicvaluechanged', handleNotifications);
-        });
-    });
+    // return startValue.writeValueWithResponse(arr).then(response => {
+    //     console.log(exerciseValue)
+    //     return exerciseValue.startNotifications().then(_ => {
+    //         console.log('> Notifications started');
+    //         exerciseValue.addEventListener('characteristicvaluechanged', handleNotifications);
+    //     });
+    // });
 
 }
 
@@ -131,18 +135,22 @@ function handleNotifications(event) {
 }
 
 function stop() {
+    $("#stop").css('background-color', '#e4e1e9');
+    $("#start").css('background-color', '#ad9acc');
+    $("#stop").css('cursor', 'auto');
+    $("#start").css('cursor', 'pointer');
     numSteps = 0;
     startStep = false;
     var arr = new Int8Array([21, 31]);
-    return stopValue.writeValueWithResponse(arr).then(response => {
-        return exerciseValue.stopNotifications()
-            .then(_ => {
-                console.log();
-            })
-            .catch(error => {
-                console.log('Argh! ' + error);
-            });
-    });
+    // return stopValue.writeValueWithResponse(arr).then(response => {
+    //     return exerciseValue.stopNotifications()
+    //         .then(_ => {
+    //             console.log();
+    //         })
+    //         .catch(error => {
+    //             console.log('Argh! ' + error);
+    //         });
+    // });
 
 }
 
