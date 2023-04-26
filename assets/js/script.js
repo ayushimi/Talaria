@@ -111,9 +111,10 @@ function start() {
 
 
 function handleNotifications(event) {
-    let value = event.target.value.getInt8() + 60;
+    let value = event.target.value.getInt8() * 2;
     console.log("sensor value " + value);
-    var voltage = Math.round(value / 60.0 * 100) / 100
+    var voltageConversionFactor = 60.0; // Sample calculation: 120 max sensor value, 2V max output => 120/2 = 60
+    var voltage = Math.round(value / voltageConversionFactor * 100) / 100
     if (value >= idleThreshold && !startStep) {
         startStep = true;
     } else if (value < idleThreshold && startStep) {
@@ -121,9 +122,7 @@ function handleNotifications(event) {
         numSteps++;
     }
 
-    // TODO: step/voltage calculations here instead of in Arduino
     if (mode == "Steps") {
-        console.log("HELLO")
         $("#stat-value").text(numSteps);
     } else {
         $("#stat-value").text(voltage);
@@ -164,14 +163,4 @@ function trackVoltage() {
 function trackSteps() {
     mode = "Steps";
     $("#stat-name").text("Steps");
-    console.log($("#stat-name").text);
-    // var arr = new Int8Array([21, 31]);
-    // return modeValue.writeValueWithResponse(arr).then(response => {
-    //     console.log(exerciseValue)
-    //     return exerciseValue.startNotifications().then(_ => {
-    //         console.log('> Notifications started');
-    //         exerciseValue.addEventListener('characteristicvaluechanged', handleNotifications);
-    //     });
-    // });
-
 }
