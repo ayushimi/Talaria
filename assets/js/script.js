@@ -103,13 +103,13 @@ function start() {
     numSteps = 0;
     startStep = false;
     var arr = new Int8Array([21, 31]);
-    // return startValue.writeValueWithResponse(arr).then(response => {
-    //     console.log(exerciseValue)
-    //     return exerciseValue.startNotifications().then(_ => {
-    //         console.log('> Notifications started');
-    //         exerciseValue.addEventListener('characteristicvaluechanged', handleNotifications);
-    //     });
-    // });
+    return startValue.writeValueWithResponse(arr).then(response => {
+        console.log(exerciseValue)
+        return exerciseValue.startNotifications().then(_ => {
+            console.log('> Notifications started');
+            exerciseValue.addEventListener('characteristicvaluechanged', handleNotifications);
+        });
+    });
 
 }
 
@@ -142,15 +142,15 @@ function stop() {
     numSteps = 0;
     startStep = false;
     var arr = new Int8Array([21, 31]);
-    // return stopValue.writeValueWithResponse(arr).then(response => {
-    //     return exerciseValue.stopNotifications()
-    //         .then(_ => {
-    //             console.log();
-    //         })
-    //         .catch(error => {
-    //             console.log('Argh! ' + error);
-    //         });
-    // });
+    return stopValue.writeValueWithResponse(arr).then(response => {
+        return exerciseValue.stopNotifications()
+            .then(_ => {
+                console.log();
+            })
+            .catch(error => {
+                console.log('Argh! ' + error);
+            });
+    });
 
 }
 
