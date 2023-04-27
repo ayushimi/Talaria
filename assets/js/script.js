@@ -59,7 +59,7 @@ function connectToBluetoothDevice(device) {
                 exerciseValue = characteristic[0];
                 startValue = characteristic[1];
                 stopValue = characteristic[2];
-                // modeValue = characteristic[3];
+                modeValue = characteristic[3];
                 resetValue = characteristic[4];
             })
 
@@ -115,7 +115,7 @@ function start() {
 
 
 function handleNotifications(event) {
-    let value = event.target.value.getInt8() * 2;
+    let value = event.target.value.getInt8() * 5;
     console.log("sensor value " + value);
     var voltageConversionFactor = 60.0; // Sample calculation: 120 max sensor value, 2V max output => 120/2 = 60
     var voltage = Math.round(value / voltageConversionFactor * 100) / 100
