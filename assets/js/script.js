@@ -115,7 +115,7 @@ function start() {
 function handleNotifications(event) {
     let value = event.target.value.getInt8() * 5;
     console.log("sensor value " + value);
-    var voltageConversionFactor = 200.0; // Sample calculation: 120 max sensor value, 2V max output => 120/2 = 60
+    var voltageConversionFactor = 100.0; // Sample calculation: 120 max sensor value, 2V max output => 120/2 = 60
     var voltage = Math.round(value / voltageConversionFactor * 100) / 100
     if (value >= idleThreshold && !startStep) {
         startStep = true;
