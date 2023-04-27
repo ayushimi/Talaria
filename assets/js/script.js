@@ -131,7 +131,7 @@ function handleNotifications(event) {
     if (mode == "Steps") {
         $("#stat-value").text(numSteps);
     } else {
-        $("#stat-value").text(voltage + "V");
+        $("#stat-value").text(voltage);
     }
     
 }
