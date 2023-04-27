@@ -4,7 +4,6 @@ var bluetoothDevice;
 var exerciseValue;
 var startValue;
 var stopValue;
-var modeValue;
 var resetValue;
 
 var mode = "Voltage";
@@ -59,7 +58,6 @@ function connectToBluetoothDevice(device) {
                 exerciseValue = characteristic[0];
                 startValue = characteristic[1];
                 stopValue = characteristic[2];
-                modeValue = characteristic[3];
                 resetValue = characteristic[4];
             })
 
